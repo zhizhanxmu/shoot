@@ -14,7 +14,11 @@ cc.Class({
         jumpDuration: 2,
         maxMoveSpeed: 70,
         // 加速度
-        accel: 70
+        accel: 70,
+        hitBombAudio:{
+            default: null,
+            type: cc.AudioClip
+        },
     },
     getPlayerDistance: function () {
         var height = -19;
@@ -22,7 +26,7 @@ cc.Class({
         return dist;
     },
     onHited: function() {
-        
+    	this.node.game.createAnimBoom(this.node.position);
         this.node.game.gameover();
         this.node.destroy();
     },

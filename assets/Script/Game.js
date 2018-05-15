@@ -10,6 +10,14 @@ cc.Class({
             default: null,
             type: cc.Node
         },
+        hpBar: {
+            default: null,
+            type: cc.Node
+        },
+        wheel: {
+            default: null,
+            type: cc.Node
+        },
         bottlePrefab: {
             default: null,
             type: cc.Prefab
@@ -22,23 +30,11 @@ cc.Class({
             default: null,
             type: cc.Prefab
         },
+        zhadanPrefab: {
+            default: null,
+            type: cc.Prefab
+        },
         scoreDisplay: {
-            default: null,
-            type: cc.Label
-        },
-        mask : {
-            default: null,
-            type: cc.Node
-        },
-        completeBox : {
-            default: null,
-            type: cc.Node
-        },
-        completeScore : {
-            default: null,
-            type: cc.Label
-        },
-        topScore : {
             default: null,
             type: cc.Label
         },
@@ -47,7 +43,9 @@ cc.Class({
         score : 0,
         bonus : 0,
         combo : false,
-        shoot : false
+        shoot : false,
+        ainm : cc.Animation,
+        hp : 3
     },
     onShoot : function(){
         this.shoot = true;
@@ -56,9 +54,6 @@ cc.Class({
         this.player.getComponent('Player').game = this;
         this.playerY = this.player.y;
         this.score = 0;
-        console.log(this.mask.active);
-        this.mask.active = false;
-        this.completeBox.active = false;
     },
     createBottle: function(_this) {
         var bottle = cc.instantiate(_this.bottlePrefab);
@@ -88,6 +83,14 @@ cc.Class({
         gain.setPosition(p1);
         gain.getComponent(cc.Label).string = '+' + score;
         this.gainScore(score);
+    },
+    createAnimBoom : function(position){
+        var y = position.y;
+        var x = position.x;
+        var p1 = cc.p(x, y);
+        var zhadan = cc.instantiate(this.zhadanPrefab);
+        this.node.addChild(zhadan);
+        zhadan.setPosition(p1);
     },
     getNewBottlePosition: function () {
         var randX = 0;
@@ -151,42 +154,6 @@ cc.Class({
         this.end = true;
         clearInterval(this.createInterval);
         this.comboFail();
-        this.updateScore();
-        this.mask.active = true;
-        this.completeBox.active = true;
-    },
-    updateScore: function() {
-        var currentScore = this.scoreDisplay.string;
-        this.completeScore.string = this.scoreDisplay.string;
-        var scoreData = {
-            'score':currentScore,
-            'time': D.common.timeFmt(new Date(),'yyyy-MM-dd hh:mm:ss'),
-        };
-        
-        var preData = cc.sys.localStorage.getItem('score');
-        
-        var preTopScore = cc.sys.localStorage.getItem('topScore');
-        
-        if (!preTopScore || parseInt(preTopScore) < parseInt(currentScore)){
-            cc.sys.localStorage.setItem('topScore', currentScore);
-        }
-        
-        if(!preData){
-            preData = [];
-            preData.unshift(scoreData);
-        } else {
-            preData = JSON.parse(preData);
-            if (!(preData instanceof Array)){
-                preData = []; 
-            }
-            preData.unshift(scoreData);
-        }
-        cc.sys.localStorage.setItem('currentScore', currentScore);
-        cc.sys.localStorage.setItem('score', JSON.stringify(preData));
-
-
-        this.topScore.string = cc.sys.localStorage.getItem('topScore');
-    },
-    // cc.sys.localStorage.setItem(“key”,”value”)
+    }
     // update (dt) {},
 });

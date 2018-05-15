@@ -1,0 +1,97 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "shootRun",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.7,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "0dd35beb-180f-46ad-a62f-a94182cd2968"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "5831b0a6-b9ec-4b89-9454-5bde465f3a91"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "a9abafb7-e208-478d-8ad7-a6d56bb98579"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "feaf83a0-80b0-4d4d-ae6e-57bfaadd9eb2"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "f3b16762-87b8-4838-a554-b0b781e10e23"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "8f93eaba-9b53-47f3-bda4-0a68ea465c7d"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "10da5c2a-f06e-4a9e-9f5f-5aa1a562b38e"
+            }
+          }
+        ]
+      }
+    },
+    "props": {
+      "rotation": [
+        {
+          "frame": 0,
+          "value": 0
+        },
+        {
+          "frame": 0.1,
+          "value": 60
+        },
+        {
+          "frame": 0.2,
+          "value": 120
+        },
+        {
+          "frame": 0.3,
+          "value": 180
+        },
+        {
+          "frame": 0.4,
+          "value": 240
+        },
+        {
+          "frame": 0.5,
+          "value": 300
+        },
+        {
+          "frame": 0.6,
+          "value": 360
+        },
+        {
+          "frame": 0.6,
+          "value": 360
+        }
+      ]
+    }
+  },
+  "events": []
+}

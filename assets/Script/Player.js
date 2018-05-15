@@ -8,16 +8,23 @@ cc.Class({
         gun : {
             default: null,
             type: cc.Node
-        }
+        },
+        audioSource: {
+         type: cc.AudioSource,
+         default: null
+         },
+
     },
     onLoad : function(){
         this.anim = this.gun.getComponent(cc.Animation);
         this.anim.on('play', this.onPlay, this);
         this.anim.on('finished', this.onFinished, this);
+        this.audio = this.getComponent(cc.AudioSource);
     },
     onPlay : function(){
         this.score = this.game.score;
         this.game.shoot = true;
+        this.audio.play();
     },
     onFinished : function(){
         if(this.game.score == this.score){
@@ -28,6 +35,7 @@ cc.Class({
     play : function(){
         if(!this.game.end){//游戏未结束才可以射击
             this.anim.play();
+
         }
     }
 });

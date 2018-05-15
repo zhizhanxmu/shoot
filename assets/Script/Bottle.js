@@ -86,7 +86,24 @@ cc.Class({
             }
         }
         if(this.node.position.y < -500){
-            console.log('lost');
+        	this.node.game.hp--;
+            if(this.node.game.hp===0){
+                 var realUrl =cc.url.raw('resources/hp4.png');
+                var texture =cc.textureCache.addImage(realUrl);
+                this.node.game.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);  
+            	
+            	this.node.game.gameover()
+            }
+            if(this.node.game.hp===2){
+               var realUrl =cc.url.raw('resources/hp2.png');
+                var texture =cc.textureCache.addImage(realUrl);
+                this.node.game.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);    
+            }
+            if(this.node.game.hp===1){
+                 var realUrl =cc.url.raw('resources/hp3.png');
+                var texture =cc.textureCache.addImage(realUrl);
+                this.node.game.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);  
+            }
             this.node.destroy();
         }
     },
