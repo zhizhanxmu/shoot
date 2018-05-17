@@ -24,14 +24,15 @@ cc.Class({
     },
 	turn: function(){
         var anim = this.anim;
-        if (this.game.end == false) {
+        if (!this.game.end) {
             anim.play('shootRun');
             setTimeout(function(){
                 anim.pause('shootRun');
             },100)
+
+            if (this.game.surplus % 7 ==0){
+                this.audio.play();
+            }
         };
-        if (this.node.parent.getComponent('Game').surplus % 7 ==0){
-            this.audio.play();
-        }
 	}
 });

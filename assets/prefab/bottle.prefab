@@ -25,10 +25,13 @@
       },
       {
         "__id__": 4
+      },
+      {
+        "__id__": 5
       }
     ],
     "_prefab": {
-      "__id__": 5
+      "__id__": 6
     },
     "_id": "",
     "_opacity": 255,
@@ -105,7 +108,10 @@
     "gun": null,
     "jumpDuration": 2,
     "maxMoveSpeed": 70,
-    "accel": 70
+    "accel": 70,
+    "audio": {
+      "__uuid__": "1683c752-e4f9-4ef1-8b90-0b09fc93edc1"
+    }
   },
   {
     "__type__": "cc.Animation",
@@ -124,6 +130,23 @@
       }
     ],
     "playOnLoad": true
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "1683c752-e4f9-4ef1-8b90-0b09fc93edc1"
+    },
+    "_volume": 1,
+    "_mute": false,
+    "_loop": false,
+    "playOnLoad": false,
+    "preload": true
   },
   {
     "__type__": "cc.PrefabInfo",

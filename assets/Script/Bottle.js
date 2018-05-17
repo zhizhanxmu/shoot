@@ -27,11 +27,8 @@ cc.Class({
         return dist;
     },
     onHited: function() {
-        // this.hited = true;
-        // this.node.game.createCrack(this.node.position,  this.node.game);
+        this.audio.play();
         this.node.game.createScore(this.node.position);
-        // this.node.game.bottlePool.put(this.node);
-        this.node.game.audio.play();
         this.node.destroy();
     },
     setJumpAction: function () {
@@ -110,5 +107,7 @@ cc.Class({
             }
             this.node.destroy();
         }
+    },
+    onDestroy : function(){
     }
 });

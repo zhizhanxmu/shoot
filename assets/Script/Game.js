@@ -87,12 +87,13 @@ cc.Class({
 
         this.index.active = false;
         this.play2();
-        
+
+
+        this.overAudio = this.hpBar.getComponent(cc.AudioSource);
     },
     onShoot : function(){
         this.shoot = true;
-        this.audio = this.getComponent(cc.AudioSource);
-        this.overAudio = this.hpBar.getComponent(cc.AudioSource);
+        
     },
     createBottle: function(_this) {
         var bottle = cc.instantiate(_this.bottlePrefab);
@@ -241,7 +242,7 @@ cc.Class({
         this.updateScore();
         this.bottlePool.clear();
 
-        this.overAudio.play();
+        //this.overAudio.play();
     },
     updateScore: function() {
         var currentScore = this.score;
