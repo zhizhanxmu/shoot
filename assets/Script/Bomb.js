@@ -27,11 +27,11 @@ cc.Class({
     },
     onHited: function() {
     	this.node.game.createAnimBoom(this.node.position);
-        this.node.game.gameover();
+        // this.node.game.bombPool.put(this);
         this.node.destroy();
+        this.node.game.gameover();
     },
     setJumpAction: function () {
-        // 跳跃上升
         var o_x = this.node.position.x;
         var o_y = this.node.position.y;
         var x = o_x - 150;
@@ -73,8 +73,5 @@ cc.Class({
         }
     },
     onDestroy : function(){
-        // console.log('onDestroy');
-        // this.node.game.createCrack(this.node.position);
     }
-    // update (dt) {},
 });

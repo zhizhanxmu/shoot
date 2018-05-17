@@ -12,22 +12,6 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
-        // 
         game: {
             default: null,
             serializable: false
@@ -35,29 +19,18 @@ cc.Class({
         anim: cc.Animation
 
     },
-
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {},
+    onLoad () {
+        this.anim = this.getComponent(cc.Animation);
+    },
 	turn: function(){
-         if (this.node.parent.getComponent('Game').end==false) {
-            
-        
-           var anim = this.getComponent(cc.Animation);
+        var anim = this.anim;
+        if (this.game.end == false) {
             anim.play('shootRun');
             setTimeout(function(){
-                console.log("333")
                 anim.pause('shootRun');
             },100)
         }
-        
-		
 	},
     start () {
-        this.node.game = this.getComponent('wheelCon').game;
-        // console.log(this.getComponent('Bottle'));
-        // console.log(this.node.getComponent('Bottle'));
     },
-
-    // update (dt) {},
 });

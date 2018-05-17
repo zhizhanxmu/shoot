@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "shine",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "props": {
+      "opacity": [
+        {
+          "frame": 0,
+          "value": 255
+        },
+        {
+          "frame": 0.5,
+          "value": 0
+        },
+        {
+          "frame": 0.8666666666666667,
+          "value": 187.00000000000003
+        },
+        {
+          "frame": 1,
+          "value": 255
+        }
+      ],
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            0,
+            -109.5
+          ]
+        },
+        {
+          "frame": 0.5,
+          "value": [
+            0,
+            -100
+          ]
+        },
+        {
+          "frame": 0.8666666666666667,
+          "value": [
+            0,
+            -106.96666666666667
+          ]
+        },
+        {
+          "frame": 1,
+          "value": [
+            0,
+            -109.5
+          ]
+        }
+      ]
+    }
+  },
+  "events": []
+}

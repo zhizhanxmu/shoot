@@ -2,6 +2,14 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        index: {
+            default: null,
+            type: cc.Node
+        },
+        loadingPanel: {
+            default: null,
+            type: cc.Node
+        },
         player: {
             default: null,
             type: cc.Node
@@ -15,6 +23,14 @@ cc.Class({
             type: cc.Node
         },
         wheel: {
+            default: null,
+            type: cc.Node
+        },
+        mask: {
+            default: null,
+            type: cc.Node
+        },
+        completeBox: {
             default: null,
             type: cc.Node
         },
@@ -38,6 +54,8 @@ cc.Class({
             default: null,
             type: cc.Label
         },
+        bottlePool : null,
+        bombPool : null,
         bombRate : 0.5,
         end : false,//游戏是否结束
         score : 0,
@@ -47,19 +65,42 @@ cc.Class({
         ainm : cc.Animation,
         hp : 3
     },
-    onShoot : function(){
-        this.shoot = true;
-    },
     onLoad: function () {
         this.player.getComponent('Player').game = this;
+        this.wheel.getComponent('WheelCon').game = this;
         this.playerY = this.player.y;
         this.score = 0;
+        this.mask.active = false;
+        this.completeBox.active = false;
+        this.loadingPanel.active = false;
+        var anim = this.loadingPanel.getComponent('cc.Animation');
+        anim.on('finished', this.play, this);
+        
+        this.currScore = this.completeBox.getChildByName('curr-score').getComponent('cc.Label');
+        this.topScore = this.completeBox.getChildByName('top-score').getComponent('cc.Label');
+
+        this.index.active = false;
+        this.play2();
+        
+    },
+    onShoot : function(){
+        this.shoot = true;
     },
     createBottle: function(_this) {
         var bottle = cc.instantiate(_this.bottlePrefab);
         _this.node.addChild(bottle);
         bottle.setPosition(_this.getNewBottlePosition());
         bottle.getComponent('Bottle').game = _this;
+
+        // var bottle = null;
+        // if (_this.bottlePool.size() > 0) { // 通过 size 接口判断对象池中是否有空闲的对象
+        //     bottle = _this.bottlePool.get();
+        // } else { // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
+        //     bottle = cc.instantiate(_this.bottlePrefab);
+        //     bottle.getComponent('Bottle').game = _this;
+        // }
+        // _this.node.addChild(bottle);
+        // bottle.setPosition(_this.getNewBottlePosition());
     },
     createBomb: function(_this) {
         var bomb = cc.instantiate(this.bombPrefab);
@@ -103,6 +144,32 @@ cc.Class({
         return cc.p(randX, randY);
     },
     start: function () {
+        
+    },
+    enter : function(){
+        this.index.active = false;
+        this.loadingPanel.active = true;
+    },
+    play : function(){
+        var _this = this;
+        this.createInterval = setInterval(function(){
+            var seed = cc.random0To1();
+            if(seed < 0.1){// ~30概率出现炸弹
+                _this.createBomb(_this);    
+            }else{
+                _this.createBottle(_this);
+            }
+        }, 600);
+    },
+    play2 : function(){
+        this.bottlePool = new cc.NodePool();
+        var initCount = 15;
+        for (var i = 0; i < initCount; ++i) {
+            var bottle = cc.instantiate(this.bottlePrefab); // 创建节点
+            bottle.getComponent('Bottle').game = this;
+            this.bottlePool.put(bottle); // 通过 putInPool 接口放入对象池
+        }
+
         var _this = this;
         this.createInterval = setInterval(function(){
             var seed = cc.random0To1();
@@ -119,7 +186,14 @@ cc.Class({
         this.end = false;
         clearInterval(this.createInterval);
         this.comboFail();
-        this.start();
+        this.hp = 3;
+        var realUrl = cc.url.raw('resources/hp1.png');
+        var texture = cc.textureCache.addImage(realUrl);
+        this.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);    
+
+        this.mask.active = false;
+        this.completeBox.active = false;
+        this.play();
     },
     gainScore: function (score) {
         this.score += score;
@@ -154,6 +228,45 @@ cc.Class({
         this.end = true;
         clearInterval(this.createInterval);
         this.comboFail();
-    }
+        this.mask.active = true;
+        this.completeBox.active = true;
+        this.updateScore();
+        this.bottlePool.clear();
+    },
+    updateScore: function() {
+        var currentScore = this.score;
+        this.currScore.string = currentScore.toString();
+
+        var scoreData = {
+            score : currentScore
+        };
+        
+        var preData = cc.sys.localStorage.getItem('score');
+        var preTopScore = cc.sys.localStorage.getItem('topScore');
+        
+        if (!preTopScore || parseInt(preTopScore) < parseInt(currentScore)){//新纪录诞生
+            cc.sys.localStorage.setItem('topScore', currentScore);
+            this.completeBox.getChildByName('best-msg').active = true;
+        }else{
+            this.completeBox.getChildByName('best-msg').active = false;
+        }
+        
+        if(!preData){
+            preData = [];
+            preData.unshift(scoreData);
+        } else {
+            preData = JSON.parse(preData);
+            if (!(preData instanceof Array)){
+                preData = []; 
+            }
+            preData.unshift(scoreData);
+        }
+        cc.sys.localStorage.setItem('currentScore', currentScore);
+        cc.sys.localStorage.setItem('score', JSON.stringify(preData));
+
+
+        this.topScore.string = 'BEST：' + cc.sys.localStorage.getItem('topScore');
+    },
+    // cc.sys.localStorage.setItem(“key”,”value”)
     // update (dt) {},
 });

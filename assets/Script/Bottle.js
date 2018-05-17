@@ -30,9 +30,9 @@ cc.Class({
         // this.hited = true;
         // this.node.game.createCrack(this.node.position,  this.node.game);
         this.node.game.createScore(this.node.position);
-        this.node.destroy();
+        this.node.game.bottlePool.put(this.node);
+        // this.node.destroy();
     },
-    // LIFE-CYCLE CALLBACKS:
     setJumpAction: function () {
         // 跳跃上升
         var o_x = this.node.position.x;
@@ -79,6 +79,10 @@ cc.Class({
         // console.log(this.node.getComponent('Bottle'));
     },
     update: function (dt) {
+        if(this.node.game.end){
+            this.node.destroy();
+            return;
+        }
         if(this.node.game && this.node.game.shoot && !this.hited){
             if (this.getPlayerDistance() < this.pickRadius) {
                 this.onHited();
@@ -88,14 +92,13 @@ cc.Class({
         if(this.node.position.y < -500){
         	this.node.game.hp--;
             if(this.node.game.hp===0){
-                 var realUrl =cc.url.raw('resources/hp4.png');
+                var realUrl =cc.url.raw('resources/hp4.png');
                 var texture =cc.textureCache.addImage(realUrl);
                 this.node.game.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);  
-            	
             	this.node.game.gameover()
             }
             if(this.node.game.hp===2){
-               var realUrl =cc.url.raw('resources/hp2.png');
+                var realUrl =cc.url.raw('resources/hp2.png');
                 var texture =cc.textureCache.addImage(realUrl);
                 this.node.game.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);    
             }
@@ -106,10 +109,5 @@ cc.Class({
             }
             this.node.destroy();
         }
-    },
-    onDestroy : function(){
-        // console.log('onDestroy');
-        // this.node.game.createCrack(this.node.position);
     }
-    // update (dt) {},
 });

@@ -10,9 +10,9 @@ cc.Class({
             type: cc.Node
         },
         audioSource: {
-         type: cc.AudioSource,
-         default: null
-         },
+            type: cc.AudioSource,
+            default: null
+        },
 
     },
     onLoad : function(){
@@ -35,7 +35,6 @@ cc.Class({
     play : function(){
         if(!this.game.end){//游戏未结束才可以射击
             this.anim.play();
-
         }
     }
 });
