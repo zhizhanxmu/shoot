@@ -681,7 +681,7 @@
     "_volume": 1,
     "_mute": false,
     "_loop": false,
-    "playOnLoad": true,
+    "playOnLoad": false,
     "preload": false
   },
   {
@@ -978,6 +978,89 @@
         "__id__": 29
       },
       {
+        "__id__": 24
+      },
+      {
+        "__id__": 25
+      }
+    ],
+    "_N$interactable": true,
+    "_N$enableAutoGrayEffect": false,
+    "_N$normalColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_N$disabledColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_N$normalSprite": {
+      "__uuid__": "e0e7cb5c-c8f5-4f62-a10c-c0c5e77418ee"
+    },
+    "_N$pressedSprite": {
+      "__uuid__": "f3a188fa-2dfe-4e34-9c47-3528b534991c"
+    },
+    "pressedSprite": {
+      "__uuid__": "f3a188fa-2dfe-4e34-9c47-3528b534991c"
+    },
+    "_N$hoverSprite": {
+      "__uuid__": "f3a188fa-2dfe-4e34-9c47-3528b534991c"
+    },
+    "hoverSprite": {
+      "__uuid__": "f3a188fa-2dfe-4e34-9c47-3528b534991c"
+    },
+    "_N$disabledSprite": {
+      "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
+    },
+    "_N$target": {
+      "__id__": 21
+    }
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 6
+    },
+    "component": "Player",
+    "handler": "play",
+    "customEventData": ""
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 26
+    },
+    "component": "wheelCon",
+    "handler": "turn",
+    "customEventData": ""
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "wheel",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_tag": -1,
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 27
+      },
+      {
+        "__id__": 28
+      },
+      {
+        "__id__": 29
+      },
+      {
         "__id__": 30
       }
     ],
@@ -1071,6 +1154,23 @@
     "_originalHeight": 0
   },
   {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 26
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "b97a440f-d4cb-4740-86d9-f3d068c32f15"
+    },
+    "_volume": 1,
+    "_mute": false,
+    "_loop": false,
+    "playOnLoad": false,
+    "preload": false
+  },
+  {
     "__type__": "cc.Node",
     "_name": "oper-bar",
     "_objFlags": 0,
@@ -1090,6 +1190,13 @@
     "_components": [
       {
         "__id__": 42
+        "__id__": 34
+      },
+      {
+        "__id__": 35
+      },
+      {
+        "__id__": 36
       }
     ],
     "_prefab": null,
@@ -1240,6 +1347,23 @@
     },
     "_enabled": true,
     "anim": null
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 31
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "76344534-7ca6-4325-a7f3-d2de6876b4ff"
+    },
+    "_volume": 1,
+    "_mute": false,
+    "_loop": false,
+    "playOnLoad": false,
+    "preload": false
   },
   {
     "__type__": "cc.Node",
@@ -3345,6 +3469,24 @@
     "combo": false,
     "shoot": false,
     "ainm": null,
-    "hp": 3
+    "hp": 3,
+    "surplus": 6
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "383f0ee4-9d42-4f70-873e-8e3a0a7eea67"
+    },
+    "_volume": 1,
+    "_mute": false,
+    "_loop": false,
+    "playOnLoad": false,
+    "preload": false
   }
 ]

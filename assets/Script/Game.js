@@ -56,6 +56,10 @@ cc.Class({
         },
         bottlePool : null,
         bombPool : null,
+         audioSource: {
+         type: cc.AudioSource,
+         default: null
+         },
         bombRate : 0.5,
         end : false,//游戏是否结束
         score : 0,
@@ -63,7 +67,9 @@ cc.Class({
         combo : false,
         shoot : false,
         ainm : cc.Animation,
-        hp : 3
+        hp : 3,
+        surplus : 0,
+
     },
     onLoad: function () {
         this.player.getComponent('Player').game = this;
@@ -85,6 +91,8 @@ cc.Class({
     },
     onShoot : function(){
         this.shoot = true;
+        this.audio = this.getComponent(cc.AudioSource);
+        this.overAudio = this.hpBar.getComponent(cc.AudioSource);
     },
     createBottle: function(_this) {
         var bottle = cc.instantiate(_this.bottlePrefab);
@@ -232,6 +240,8 @@ cc.Class({
         this.completeBox.active = true;
         this.updateScore();
         this.bottlePool.clear();
+
+        this.overAudio.play();
     },
     updateScore: function() {
         var currentScore = this.score;
@@ -263,10 +273,6 @@ cc.Class({
         }
         cc.sys.localStorage.setItem('currentScore', currentScore);
         cc.sys.localStorage.setItem('score', JSON.stringify(preData));
-
-
         this.topScore.string = 'BEST：' + cc.sys.localStorage.getItem('topScore');
-    },
-    // cc.sys.localStorage.setItem(“key”,”value”)
-    // update (dt) {},
+    }
 });

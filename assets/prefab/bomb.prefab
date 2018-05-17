@@ -108,8 +108,7 @@
     "gun": null,
     "jumpDuration": 2,
     "maxMoveSpeed": 70,
-    "accel": 70,
-    "hitBombAudio": null
+    "accel": 70
   },
   {
     "__type__": "cc.Animation",

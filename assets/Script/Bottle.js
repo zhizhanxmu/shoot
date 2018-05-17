@@ -30,8 +30,9 @@ cc.Class({
         // this.hited = true;
         // this.node.game.createCrack(this.node.position,  this.node.game);
         this.node.game.createScore(this.node.position);
-        this.node.game.bottlePool.put(this.node);
-        // this.node.destroy();
+        // this.node.game.bottlePool.put(this.node);
+        this.node.game.audio.play();
+        this.node.destroy();
     },
     setJumpAction: function () {
         // 跳跃上升

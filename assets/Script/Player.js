@@ -19,7 +19,7 @@ cc.Class({
         this.anim = this.gun.getComponent(cc.Animation);
         this.anim.on('play', this.onPlay, this);
         this.anim.on('finished', this.onFinished, this);
-        this.audio = this.getComponent(cc.AudioSource);
+        this.audio = this.gun.getComponent(cc.AudioSource);
     },
     onPlay : function(){
         this.score = this.game.score;
@@ -35,6 +35,8 @@ cc.Class({
     play : function(){
         if(!this.game.end){//游戏未结束才可以射击
             this.anim.play();
+            this.game.surplus++;
+            console.log(this.game.surplus);
         }
     }
 });

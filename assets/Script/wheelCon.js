@@ -17,10 +17,10 @@ cc.Class({
             serializable: false
         },
         anim: cc.Animation
-
     },
     onLoad () {
         this.anim = this.getComponent(cc.Animation);
+        this.audio = this.getComponent(cc.AudioSource);
     },
 	turn: function(){
         var anim = this.anim;
@@ -29,8 +29,9 @@ cc.Class({
             setTimeout(function(){
                 anim.pause('shootRun');
             },100)
+        };
+        if (this.node.parent.getComponent('Game').surplus % 7 ==0){
+            this.audio.play();
         }
-	},
-    start () {
-    },
+	}
 });
