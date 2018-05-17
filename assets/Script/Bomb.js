@@ -15,10 +15,7 @@ cc.Class({
         maxMoveSpeed: 70,
         // 加速度
         accel: 70,
-        hitBombAudio:{
-            default: null,
-            type: cc.AudioClip
-        },
+        
     },
     getPlayerDistance: function () {
         var height = -19;
@@ -26,7 +23,9 @@ cc.Class({
         return dist;
     },
     onHited: function() {
+        var boom = this.bombAudio = this.node.game.timer.getComponent(cc.AudioSource);
     	this.node.game.createAnimBoom(this.node.position);
+        boom.play();
         this.node.game.gameover();
         this.node.destroy();
     },
@@ -54,12 +53,14 @@ cc.Class({
         // }
     },
     onLoad () {
+        
     },
     start () {
         var anim = this.getComponent(cc.Animation);
         anim.play();
         this.node.runAction(this.setJumpAction());
         this.node.game = this.getComponent('Bomb').game;
+
     },
     update: function (dt) {
         if(this.node.game && this.node.game.shoot && !this.hited){

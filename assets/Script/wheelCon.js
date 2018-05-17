@@ -38,17 +38,20 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+     onLoad () {
+        this.audio = this.getComponent(cc.AudioSource);
+     },
 	turn: function(){
-         if (this.node.parent.getComponent('Game').end==false) {
-            
-        
+         if (this.node.parent.getComponent('Game').end==false) {     
            var anim = this.getComponent(cc.Animation);
             anim.play('shootRun');
             setTimeout(function(){
                 console.log("333")
                 anim.pause('shootRun');
             },100)
+        };
+        if (this.node.parent.getComponent('Game').surplus % 7 ==0){
+            this.audio.play();
         }
         
 		

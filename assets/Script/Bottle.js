@@ -30,6 +30,7 @@ cc.Class({
         // this.hited = true;
         // this.node.game.createCrack(this.node.position,  this.node.game);
         this.node.game.createScore(this.node.position);
+        this.node.game.audio.play();
         this.node.destroy();
     },
     // LIFE-CYCLE CALLBACKS:

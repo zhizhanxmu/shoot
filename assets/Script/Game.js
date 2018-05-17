@@ -38,6 +38,10 @@ cc.Class({
             default: null,
             type: cc.Label
         },
+         audioSource: {
+         type: cc.AudioSource,
+         default: null
+         },
         bombRate : 0.5,
         end : false,//游戏是否结束
         score : 0,
@@ -45,7 +49,9 @@ cc.Class({
         combo : false,
         shoot : false,
         ainm : cc.Animation,
-        hp : 3
+        hp : 3,
+        surplus : 0,
+
     },
     onShoot : function(){
         this.shoot = true;
@@ -54,6 +60,8 @@ cc.Class({
         this.player.getComponent('Player').game = this;
         this.playerY = this.player.y;
         this.score = 0;
+        this.audio = this.getComponent(cc.AudioSource);
+        this.overAudio = this.hpBar.getComponent(cc.AudioSource);
     },
     createBottle: function(_this) {
         var bottle = cc.instantiate(_this.bottlePrefab);
@@ -154,6 +162,7 @@ cc.Class({
         this.end = true;
         clearInterval(this.createInterval);
         this.comboFail();
+        this.overAudio.play();
     }
     // update (dt) {},
 });
