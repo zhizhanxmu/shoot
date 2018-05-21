@@ -11,7 +11,8 @@ cc.Class({
         }
     },
     onLoad : function(){
-        this.anim = this.gun.getComponent(cc.Animation);
+        this.anim = this.node.getComponent(cc.Animation);
+        console.log(this.game);
         this.anim.on('play', this.onPlay, this);
         this.anim.on('finished', this.onFinished, this);
         this.audio = this.node.getComponent(cc.AudioSource);

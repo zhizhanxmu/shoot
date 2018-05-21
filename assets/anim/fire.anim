@@ -3,82 +3,13 @@
   "_name": "fire",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 0.85,
+  "_duration": 0.83,
   "sample": 60,
   "speed": 3,
   "wrapMode": 1,
   "curveData": {
     "comps": {
-      "cc.Sprite": {
-        "spriteFrame": [
-          {
-            "frame": 0,
-            "value": {
-              "__uuid__": "5fc6465e-7131-4083-8ef6-c4954236e6b4"
-            }
-          },
-          {
-            "frame": 0.08333333333333333,
-            "value": {
-              "__uuid__": "daa0b69e-bbfb-4c1d-b2a7-70ec6174f908"
-            }
-          },
-          {
-            "frame": 0.16666666666666666,
-            "value": {
-              "__uuid__": "b35b03f8-59f6-48e5-9f1b-61ff1c872dbf"
-            }
-          },
-          {
-            "frame": 0.25,
-            "value": {
-              "__uuid__": "83e41a71-7fc6-436c-8303-493ebe91ab22"
-            }
-          },
-          {
-            "frame": 0.3333333333333333,
-            "value": {
-              "__uuid__": "e0b25748-b0e2-48fe-858e-34be75343b9f"
-            }
-          },
-          {
-            "frame": 0.4166666666666667,
-            "value": {
-              "__uuid__": "419e986f-edd5-44d0-9206-1219655ba4d4"
-            }
-          },
-          {
-            "frame": 0.5,
-            "value": {
-              "__uuid__": "663635b3-4bc7-4266-b26f-5367b4ef629d"
-            }
-          },
-          {
-            "frame": 0.5833333333333334,
-            "value": {
-              "__uuid__": "50c4a0ef-c29b-4dd6-85d6-f3168911b3f1"
-            }
-          },
-          {
-            "frame": 0.6666666666666666,
-            "value": {
-              "__uuid__": "86d068fb-398c-4232-8f72-56ddec81bfd2"
-            }
-          },
-          {
-            "frame": 0.75,
-            "value": {
-              "__uuid__": "60dff3ae-8841-4ef9-bc1a-fd6305dc08ca"
-            }
-          },
-          {
-            "frame": 0.8333333333333334,
-            "value": {
-              "__uuid__": "657ac720-4eec-4780-9ea4-69664f503a9d"
-            }
-          }
-        ]
-      }
+      "cc.Sprite": {}
     },
     "paths": {
       "bullet": {
@@ -178,6 +109,34 @@
           ]
         }
       }
+    },
+    "props": {
+      "rotation": [
+        {
+          "frame": 0,
+          "value": 0
+        },
+        {
+          "frame": 0.16666666666666666,
+          "value": -5
+        },
+        {
+          "frame": 0.3333333333333333,
+          "value": -10
+        },
+        {
+          "frame": 0.5,
+          "value": -8
+        },
+        {
+          "frame": 0.6666666666666666,
+          "value": -4
+        },
+        {
+          "frame": 0.8333333333333334,
+          "value": 0
+        }
+      ]
     }
   },
   "events": []

@@ -42,6 +42,10 @@ cc.Class({
             default: null,
             type: cc.Prefab
         },
+        crackPrefab: {
+            default: null,
+            type: cc.Prefab
+        },
         gainPrefab: {
             default: null,
             type: cc.Prefab
@@ -116,6 +120,15 @@ cc.Class({
         _this.node.addChild(bomb);
         bomb.setPosition(_this.getNewBottlePosition());
         bomb.getComponent('Bomb').game = _this;
+    },
+    createCrack : function(position){
+        var y = position.y;
+        var x = position.x;
+        var p1 = cc.p(x, y);
+        var crack = cc.instantiate(this.crackPrefab);
+        this.node.addChild(crack);
+        crack.setPosition(p1);
+        crack.getComponent('Crack').game = this;
     },
     /**
      * 打中瓶子之后显示当前瓶子得分

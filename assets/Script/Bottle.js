@@ -13,11 +13,11 @@ cc.Class({
             default : null,
             type : cc.Node
         },
-        jumpDuration: 2,
+        jumpDuration: 0.2,
         // 最大移动速度
-        maxMoveSpeed: 70,
+        maxMoveSpeed: 2100,
         // 加速度
-        accel: 70
+        accel: 2100
     },
     getPlayerDistance: function () {
         // 根据 player 节点位置判断距离
@@ -27,8 +27,9 @@ cc.Class({
         return dist;
     },
     onHited: function() {
-        this.audio.play();
-        this.node.game.createScore(this.node.position);
+       // this.audio.play();
+        // this.node.game.createScore(this.node.position);
+        this.node.game.createCrack(this.node.position);
         this.node.destroy();
     },
     setJumpAction: function () {
@@ -37,7 +38,7 @@ cc.Class({
         var o_y = this.node.position.y;
         var x = o_x - 150;
         var y = this.node.position.y + 400;
-        var offset = 40;
+        var offset = 140;
         if(o_x > 0){
             offset = -40;
         }

@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "revolver",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.5,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "rotation": [
+        {
+          "frame": 0,
+          "value": 0
+        },
+        {
+          "frame": 0.08333333333333333,
+          "value": 60
+        },
+        {
+          "frame": 0.16666666666666666,
+          "value": 120
+        },
+        {
+          "frame": 0.25,
+          "value": 180
+        },
+        {
+          "frame": 0.3333333333333333,
+          "value": 240
+        },
+        {
+          "frame": 0.4166666666666667,
+          "value": 300
+        },
+        {
+          "frame": 0.5,
+          "value": 360
+        }
+      ]
+    },
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "e054e68b-7125-4c9f-a87f-cf9ee5205838"
+            }
+          },
+          {
+            "frame": 0.08333333333333333,
+            "value": {
+              "__uuid__": "10123d97-28ed-49f1-aff4-3aae53ddbc87"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

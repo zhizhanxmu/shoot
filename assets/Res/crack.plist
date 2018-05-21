@@ -4,63 +4,48 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>crack_01.png</key>
+            <key>1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{-4,-3}</string>
                 <key>spriteSize</key>
-                <string>{30,25}</string>
+                <string>{84,152}</string>
                 <key>spriteSourceSize</key>
-                <string>{30,25}</string>
+                <string>{248,248}</string>
                 <key>textureRect</key>
-                <string>{{33,1},{30,25}}</string>
+                <string>{{347,1},{84,152}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>crack_02.png</key>
+            <key>2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{2,1}</string>
                 <key>spriteSize</key>
-                <string>{25,32}</string>
+                <string>{160,154}</string>
                 <key>spriteSourceSize</key>
-                <string>{25,32}</string>
+                <string>{248,248}</string>
                 <key>textureRect</key>
-                <string>{{1,35},{25,32}}</string>
+                <string>{{191,1},{160,154}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>crack_03.png</key>
+            <key>3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,11}</string>
                 <key>spriteSize</key>
-                <string>{27,32}</string>
+                <string>{188,168}</string>
                 <key>spriteSourceSize</key>
-                <string>{27,32}</string>
+                <string>{248,248}</string>
                 <key>textureRect</key>
-                <string>{{35,28},{27,32}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>crack_04.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{30,32}</string>
-                <key>spriteSourceSize</key>
-                <string>{30,32}</string>
-                <key>textureRect</key>
-                <string>{{1,1},{30,32}}</string>
+                <string>{{1,1},{188,168}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -76,9 +61,9 @@
             <key>realTextureFileName</key>
             <string>crack.png</string>
             <key>size</key>
-            <string>{64,61}</string>
+            <string>{432,170}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ef0f841327f5ad869e4efce1a214a853:c6a8b397112548655caa9e47eb9b4b18:b2ec0fbd183b94f8922d61849926bb05$</string>
+            <string>$TexturePacker:SmartUpdate:6bbbc98cb8b7fbb521e7de2f8ebfbecb:cfb7e6f4d0ca52ca32f6cdba7a15fb4e:b2ec0fbd183b94f8922d61849926bb05$</string>
             <key>textureFileName</key>
             <string>crack.png</string>
         </dict>
