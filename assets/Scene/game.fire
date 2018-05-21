@@ -94,6 +94,9 @@
       },
       {
         "__id__": 94
+      },
+      {
+        "__id__": 95
       }
     ],
     "_prefab": null,
@@ -1431,7 +1434,7 @@
     "target": {
       "__id__": 32
     },
-    "component": "WheelCon",
+    "component": "wheelCon",
     "handler": "turn",
     "customEventData": ""
   },
@@ -3357,7 +3360,18 @@
     },
     "bottlePool": null,
     "bombPool": null,
-    "audioSource": null,
+    "backgroundAudio": {
+      "__uuid__": "0d52e465-1dfc-4ec9-989f-69bc1c238a8d"
+    },
+    "overAudio": {
+      "__uuid__": "186c469c-dc0c-4f02-b81d-bca4948f0715"
+    },
+    "bottleAudio": {
+      "__uuid__": "383f0ee4-9d42-4f70-873e-8e3a0a7eea67"
+    },
+    "bombAudio": {
+      "__uuid__": "76344534-7ca6-4325-a7f3-d2de6876b4ff"
+    },
     "bombRate": 0.5,
     "end": false,
     "score": 0,
@@ -3367,5 +3381,22 @@
     "ainm": null,
     "hp": 3,
     "surplus": 0
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "20dcd5d9-8b31-43ed-befd-caa9901ca014"
+    },
+    "_volume": 1,
+    "_mute": false,
+    "_loop": false,
+    "playOnLoad": false,
+    "preload": false
   }
 ]

@@ -56,10 +56,18 @@ cc.Class({
         },
         bottlePool : null,
         bombPool : null,
-         audioSource: {
-         type: cc.AudioSource,
+        backgroundAudio: {
+         url: cc.AudioClip,
          default: null
-         },
+        },
+        bottleAudio: {
+         url: cc.AudioClip,
+         default: null
+        },
+        bombAudio: {
+         url: cc.AudioClip,
+         default: null
+        },
         bombRate : 0.5,
         end : false,//游戏是否结束
         score : 0,
@@ -73,23 +81,20 @@ cc.Class({
     },
     onLoad: function () {
         this.player.getComponent('Player').game = this;
-        this.wheel.getComponent('WheelCon').game = this;
+        this.wheel.getComponent('wheelCon').game = this;
         this.playerY = this.player.y;
         this.score = 0;
         this.mask.active = false;
         this.completeBox.active = false;
         this.loadingPanel.active = false;
         var anim = this.loadingPanel.getComponent('cc.Animation');
-        anim.on('finished', this.play, this);
-        
+        anim.on('finished', this.play, this); 
         this.currScore = this.completeBox.getChildByName('curr-score').getComponent('cc.Label');
         this.topScore = this.completeBox.getChildByName('top-score').getComponent('cc.Label');
-
         this.index.active = false;
         this.play2();
-
-
-        this.overAudio = this.hpBar.getComponent(cc.AudioSource);
+        this.overAudio = this.getComponent('cc.AudioSource');
+        cc.audioEngine.play(this.backgroundAudio, true);
     },
     onShoot : function(){
         this.shoot = true;
@@ -241,8 +246,11 @@ cc.Class({
         this.completeBox.active = true;
         this.updateScore();
         this.bottlePool.clear();
-
+        this.overAudio.play();
         //this.overAudio.play();
+        var realUrl = cc.url.raw('resources/hp4.png');
+        var texture = cc.textureCache.addImage(realUrl);
+        this.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture); 
     },
     updateScore: function() {
         var currentScore = this.score;

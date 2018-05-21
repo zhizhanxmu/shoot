@@ -27,9 +27,9 @@ cc.Class({
         return dist;
     },
     onHited: function() {
-        this.audio.play();
         this.node.game.createScore(this.node.position);
         this.node.destroy();
+        cc.audioEngine.playMusic(this.node.game.bottleAudio, false);
     },
     setJumpAction: function () {
         // 跳跃上升
