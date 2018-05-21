@@ -29,7 +29,6 @@ cc.Class({
             setTimeout(function(){
                 anim.pause('shootRun');
             },100)
-
             if (this.game.surplus % 7 ==0){
                 this.audio.play();
             }

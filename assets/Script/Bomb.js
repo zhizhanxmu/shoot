@@ -31,6 +31,7 @@ cc.Class({
         // this.node.game.bombPool.put(this);
         this.node.destroy();
         this.node.game.gameover();
+        cc.audioEngine.playMusic(this.node.game.bombAudio, false);
     },
     setJumpAction: function () {
         var o_x = this.node.position.x;

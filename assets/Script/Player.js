@@ -20,7 +20,7 @@ cc.Class({
     onPlay : function(){
         this.score = this.game.score;
         this.game.shoot = true;
-        // this.audio.play();
+        this.audio.play();
     },
     onFinished : function(){
         if(this.game.score == this.score){
