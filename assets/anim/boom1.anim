@@ -1,29 +1,33 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "fadeInOut",
+  "_name": "boom1",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 3,
+  "_duration": 2.98,
   "sample": 60,
-  "speed": 2,
+  "speed": 6,
   "wrapMode": 1,
   "curveData": {
     "props": {
       "opacity": [
         {
           "frame": 0,
-          "value": 255
+          "value": 0
         },
         {
-          "frame": 0.9166666666666666,
+          "frame": 0.6666666666666666,
           "value": 150
         },
         {
-          "frame": 2.5,
-          "value": 100
+          "frame": 1.35,
+          "value": 255
         },
         {
-          "frame": 3,
+          "frame": 2.3666666666666667,
+          "value": 150
+        },
+        {
+          "frame": 2.9833333333333334,
           "value": 0
         }
       ]

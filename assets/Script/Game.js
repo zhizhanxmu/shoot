@@ -72,6 +72,7 @@ cc.Class({
          url: cc.AudioClip,
          default: null
         },
+        display: cc.Sprite,
         bombRate : 0.5,
         end : false,//游戏是否结束
         score : 0,
@@ -81,8 +82,11 @@ cc.Class({
         ainm : cc.Animation,
         hp : 3,
         surplus : 0,
+        topScore : 0,
 
     },
+   
+    
     onLoad: function () {
         this.player.getComponent('Player').game = this;
         this.wheel.getComponent('wheelCon').game = this;
@@ -90,15 +94,17 @@ cc.Class({
         this.score = 0;
         this.mask.active = false;
         this.completeBox.active = false;
-        this.loadingPanel.active = false;
+        this.loadingPanel.active = true;
         var anim = this.loadingPanel.getComponent('cc.Animation');
         anim.on('finished', this.play, this); 
         this.currScore = this.completeBox.getChildByName('curr-score').getComponent('cc.Label');
         this.topScore = this.completeBox.getChildByName('top-score').getComponent('cc.Label');
+
         this.index.active = false;
         this.play2();
         this.overAudio = this.getComponent('cc.AudioSource');
         cc.audioEngine.play(this.backgroundAudio, true);
+        
     },
     onShoot : function(){
         this.shoot = true;
@@ -171,7 +177,7 @@ cc.Class({
         return cc.p(randX, randY);
     },
     start: function () {
-        
+        this.tex = new cc.Texture2D();
     },
     enter : function(){
         this.index.active = false;
@@ -264,6 +270,12 @@ cc.Class({
         var realUrl = cc.url.raw('resources/hp4.png');
         var texture = cc.textureCache.addImage(realUrl);
         this.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture); 
+
+        let openDataContext = wx.getOpenDataContext()
+        var _this = this
+        openDataContext.postMessage({
+          score: _this.topScore,
+        })
     },
     updateScore: function() {
         var currentScore = this.score;

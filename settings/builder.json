@@ -3,12 +3,13 @@
   "appSecret": "",
   "encryptJs": true,
   "excludeScenes": [],
+  "fb-instant-games": {},
   "includeAnySDK": false,
   "includeSDKBox": false,
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
   "jailbreakPlatform": false,
-  "md5Cache": false,
+  "md5Cache": true,
   "mergeStartScene": false,
   "oauthLoginServer": "",
   "optimizeHotUpdate": false,
@@ -20,13 +21,19 @@
   },
   "packageName": "org.cocos2d.helloworld",
   "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
   "renderMode": "1",
   "startScene": "2d2f792f-a40c-49bb-a189-ed176a246e49",
   "title": "shoot",
   "webOrientation": "auto",
   "wechatgame": {
     "appid": "wxf5cfbdb524460d5c",
-    "orientation": "landscape"
+    "isSubdomain": false,
+    "orientation": "landscape",
+    "subContext": "Rank"
   },
   "xxteaKey": "1013bb23-dc68-47",
   "zipCompressJs": true
