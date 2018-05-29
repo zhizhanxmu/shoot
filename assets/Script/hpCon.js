@@ -12,34 +12,31 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        _controller: null,
-        display: cc.Sprite
+        hp1: {
+            default: null,
+            type: cc.Node
+        },
+        hp2: {
+            default: null,
+            type: cc.Node
+        },
+        hp3: {
+            default: null,
+            type: cc.Node
+        },
+        game: {
+            default: null,
+            serializable: false
+        },
     },
 
-    init(controller) {
-        this._controller = controller;
-        cc.log('init!');
-    },
+    // LIFE-CYCLE CALLBACKS:
+
+    // onLoad () {},
 
     start () {
-      this._isShow = false;
-      // this.tex = new cc.Texture2D();
 
     },
-    onClick() {
-        this._isShow = !this._isShow;
-        // 发消息给子域
-       
-    },
-    _updaetSubDomainCanvas() {
-        if (!this.tex) {
-            return;
-        }
-        // this.tex.initWithElement(sharedCanvas);
-        // this.tex.handleLoadedTexture();
-        // this.display.spriteFrame = new cc.SpriteFrame(this.tex);
-    },
-    update() {
-        this._updaetSubDomainCanvas();
-    }
+
+    // update (dt) {},
 });

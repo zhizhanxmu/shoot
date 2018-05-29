@@ -14,6 +14,18 @@ cc.Class({
             default: null,
             type: cc.Node
         },
+        hp3: {
+            default: null,
+            type: cc.Node
+        },
+        hp2: {
+            default: null,
+            type: cc.Node
+        },
+        hp1: {
+            default: null,
+            type: cc.Node
+        },
         timer: {
             default: null,
             type: cc.Node
@@ -72,6 +84,7 @@ cc.Class({
          url: cc.AudioClip,
          default: null
         },
+
         display: cc.Sprite,
         bombRate : 0.5,
         end : false,//游戏是否结束
@@ -177,7 +190,15 @@ cc.Class({
         return cc.p(randX, randY);
     },
     start: function () {
-        this.tex = new cc.Texture2D();
+        /*this.tex = new cc.Texture2D();
+        let openDataContext = wx.getOpenDataContext()
+        console.dir(wx);
+        console.dir(openDataContext);*/
+        
+        // openDataContext.postMessage({
+        //   text: 'hello',
+        //   year: (new Date()).getFullYear()
+        // })
     },
     enter : function(){
         this.index.active = false;
@@ -220,13 +241,20 @@ cc.Class({
         clearInterval(this.createInterval);
         this.comboFail();
         this.hp = 3;
-        var realUrl = cc.url.raw('resources/hp1.png');
+        /*var realUrl = cc.url.raw('resources/hp1.png');
         var texture = cc.textureCache.addImage(realUrl);
-        this.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);    
+        this.hp1.getComponent(cc.Sprite).spriteFrame.setTexture(texture); */  
 
         this.mask.active = false;
         this.completeBox.active = false;
+
+        this.hp1.getComponent(cc.Animation).setCurrentTime(0, 'crack');
+        this.hp2.getComponent(cc.Animation).setCurrentTime(0, 'crack');
+        this.hp3.getComponent(cc.Animation).setCurrentTime(0, 'crack');
+
         this.play();
+       /* var textureURL = this.textureURL;
+        this.hp1.getComponent(cc.Sprite).spriteFrame.setTexture(textureURL)*/
     },
     gainScore: function (score) {
         this.score += score;
@@ -264,18 +292,22 @@ cc.Class({
         this.mask.active = true;
         this.completeBox.active = true;
         this.updateScore();
-        this.bottlePool.clear();
+        
         this.overAudio.play();
         //this.overAudio.play();
-        var realUrl = cc.url.raw('resources/hp4.png');
+        /*var realUrl = cc.url.raw('resources/hp4.png');
         var texture = cc.textureCache.addImage(realUrl);
-        this.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture); 
+        this.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);*/ 
 
-        let openDataContext = wx.getOpenDataContext()
-        var _this = this
-        openDataContext.postMessage({
-          score: _this.topScore,
-        })
+        /*var kvDataList = [];
+        kvDataList.push({
+            "score": 123,
+            "update_time" : new Date().getTime()
+        });
+        wx.setUserCloudStorage({
+            "KVDataList": kvDataList
+        });*/
+
     },
     updateScore: function() {
         var currentScore = this.score;

@@ -8,6 +8,10 @@ cc.Class({
             default: null,
             serializable: false
         },
+        hpBar: {
+            default: null,
+            serializable: false
+        },
         anim : cc.Animation,
         gun : {
             default : null,
@@ -90,20 +94,16 @@ cc.Class({
         if(this.node.position.y < -500){
         	this.node.game.hp--;
             if(this.node.game.hp===0){
-                var realUrl =cc.url.raw('resources/hp4.png');
-                var texture =cc.textureCache.addImage(realUrl);
-                this.node.game.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);  
+                this.node.game.hp1.getComponent(cc.Animation).play()
             	this.node.game.gameover()
             }
             if(this.node.game.hp===2){
-                var realUrl =cc.url.raw('resources/hp2.png');
-                var texture =cc.textureCache.addImage(realUrl);
-                this.node.game.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);    
+                this.node.game.hp3.getComponent(cc.Animation).play()
             }
             if(this.node.game.hp===1){
-                 var realUrl =cc.url.raw('resources/hp3.png');
-                var texture =cc.textureCache.addImage(realUrl);
-                this.node.game.hpBar.getComponent(cc.Sprite).spriteFrame.setTexture(texture);  
+                this.node.game.hp2.getComponent(cc.Animation).play()
+                this.node.game.hp3.getComponent(cc.Animation).resume()
+                this.node.game.hpBar  
             }
             this.node.destroy();
         }
