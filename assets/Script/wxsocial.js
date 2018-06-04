@@ -22,9 +22,8 @@ cc.Class({
     },
 
     start () {
-      this._isShow = false;
-      // this.tex = new cc.Texture2D();
-
+    //   this._isShow = false;
+    //   this.tex = new cc.Texture2D();
     },
     onClick() {
         this._isShow = !this._isShow;
@@ -32,9 +31,9 @@ cc.Class({
        
     },
     _updaetSubDomainCanvas() {
-        if (!this.tex) {
-            return;
-        }
+        // if (!this.tex) {
+        //     return;
+        // }
         // this.tex.initWithElement(sharedCanvas);
         // this.tex.handleLoadedTexture();
         // this.display.spriteFrame = new cc.SpriteFrame(this.tex);
