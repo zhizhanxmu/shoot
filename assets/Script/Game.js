@@ -107,14 +107,14 @@ cc.Class({
         this.score = 0;
         this.mask.active = false;
         this.completeBox.active = false;
-        this.loadingPanel.active = true;
+        this.loadingPanel.active = false;
         var anim = this.loadingPanel.getComponent('cc.Animation');
-        anim.on('finished', this.play, this); 
+        anim.on('finished', this.play2, this); 
         this.currScore = this.completeBox.getChildByName('curr-score').getComponent('cc.Label');
         this.topScore = this.completeBox.getChildByName('top-score').getComponent('cc.Label');
         this.rate = 0.1;
-        this.index.active = false;
-        this.play2();
+        // this.index.active = false;
+        // this.play2();
         this.overAudio = this.getComponent('cc.AudioSource');
         // cc.audioEngine.play(this.backgroundAudio, true);
 
@@ -230,11 +230,11 @@ cc.Class({
         // }, 2000);
 
         var _this = this;
-        console.log(_this.rate);
+        console.log(_this);
         this.createInterval = setInterval(function(){
             let seed = cc.random0To1();
-            console.log(seed );
-            console.log(_this.rate);
+            // console.log(seed );
+            // console.log(_this.rate);
             if(seed < _this.rate){// ~30概率出现炸弹
                 _this.createBomb(_this);    
             }else{
